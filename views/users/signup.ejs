@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<head>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+    <div class="subHead signup-subhead">
+        Register yourself
+    </div>
+    <form action="/signup" method="post">
+        <p id="signupFormHead">Sign Up on Wanderlust</p>
+        <div class="SignupUsername" id="usernameDiv">
+            <label for="username" class="mlUser ffUser">USERNAME : </label><br>
+            <input type="text" id="username" class="ffUser SignupUser" name="username" placeholder="Please Enter your Username" required>
+            <i class="fa-solid signupFormIcons fa-check signupPriorIcon" id="usernameSignupIconFill"></i>
+            <i class="fa-solid signupFormIcons fa-circle-info" id="usernameSignupIconEmpty"></i>
+        </div>
+        <div class="SignupUsername" id="emailDiv">
+            <label for="email" class="mlUser ffUser">Email : </label><br>
+            <input type="text" id="email" class="ffUser SignupUser" name="email" placeholder="Please Enter your Email" required>
+            <i class="fa-solid signupFormIcons fa-check signupPriorIcon" id="emailSignupIconFill"></i>
+            <i class="fa-solid signupFormIcons fa-circle-info" id="emailSignupIconEmpty"></i>
+        </div>
+        <div class="SignupUsername" id="passwordDiv">
+            <label for="password" class="mlUser ffUser">Password : </label><br>
+            <input type="password" id="password" class="ffUser SignupUser" name="password" placeholder="Please Enter your Password" required>
+            <i class="fa-solid signupFormIcons fa-check signupPriorIcon" id="passwordSignupIconFill"></i>
+            <i class="fa-solid signupFormIcons fa-circle-info" id="passwordSignupIconEmpty"></i>
+        </div>
+        <div class="userSignupBtn">
+            <button class="userSignupBtn" id="signupFormBtn">Sign up</button>
+        </div>
+    </form>
+    <script src="/js/signupJS.js"></script>
+</body>
+</html>

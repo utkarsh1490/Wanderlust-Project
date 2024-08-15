@@ -1,0 +1,30 @@
+<div class="flashMsg">
+    <% if(successMsg.length){ %>
+        <p>
+            <p class="msg"><%= successMsg %></p>
+            <button id="flashCloseBtn">
+                <i class="fa-sharp fa-solid fa-rectangle-xmark"></i>
+            </button>
+        </p>
+        <style>
+            .flashMsg{
+                border: 0.01rem solid rgb(125, 252, 125);
+                background-color: rgb(167, 253, 167);
+            }
+        </style>
+    <% } else{ %>
+        <p>
+            <p class="msg" style="color: white;"><%= errorMsg %></p>
+            <button id="flashCloseBtn" style="color: rgb(254, 35, 35);">
+                <i class="fa-sharp fa-solid fa-rectangle-xmark"></i>
+            </button>
+        </p>
+        <style>
+            .flashMsg{
+                border: 0.01rem solid rgb(254, 121, 130);
+                background-color: rgb(254, 161, 172);
+            }
+        </style>
+    <% } %>
+</div>
+<script src="/js/flash.js"></script>

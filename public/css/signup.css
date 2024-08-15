@@ -1,0 +1,119 @@
+.footer{
+    position: relative;
+    bottom: 0;
+    width: 99.2%;
+}
+#signupFormHead{
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 0.8rem;
+    margin-bottom: 4.5rem;
+    text-decoration: underline 0.2rem;
+}
+#signupFormHead{
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+#signupFormHead{
+  font-family: "Assistant", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+#signupFormHead{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.mlUser{
+    margin-left: 3rem;
+}
+.SignupUsername{
+    margin-top: -1.4rem;
+    margin-left: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}
+.SignupUser{
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    font-size: 2rem;
+    width: 85rem;
+    padding: 1rem 2rem;
+    border: 0.003rem solid rgba(0, 0, 0, 0.162);
+}
+.ffUser{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+.ffUser{
+  font-family: "Assistant", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+.ffUser{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.userSignupBtn{
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+}
+button.userSignupBtn{
+    padding: 0.7rem 3rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid white;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    background: linear-gradient(to right bottom,rgb(241, 202, 235),rgb(217, 0, 255));
+    color: rgb(255, 255, 255);
+}
+button.userSignupBtn:hover{
+    border: 0.1rem solid rgb(104, 89, 104);
+}
+.signupFormIcons{
+    position: relative;
+    top: 1rem;
+    left: 42rem;
+    color: rgb(255, 183, 0);
+    display: none;
+    width: 2.5rem;
+    margin-bottom: 2rem;
+}
+.signupPriorIcon{
+    margin-left: 3rem;
+    margin-right: -3rem;
+}
+.fa-check{
+    color: lightgreen;
+}
+.errorPara{
+    padding: 0.75rem 3rem;
+    margin-left: 27rem;
+    font-size: 1.7rem;
+    letter-spacing: 0.23rem;
+    word-spacing: 2rem;
+    background-color: rgba(253, 220, 135, 0.415);
+    border: 0.03rem solid rgb(253, 208, 95);
+    color: rgb(255, 183, 0);
+    text-shadow: 0.01rem 0.01rem 0.1rem rgb(255, 183, 0);
+    border-radius: 0.8rem;
+    display: inline;
+    text-align: center;
+}

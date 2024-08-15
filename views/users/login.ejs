@@ -1,0 +1,28 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<head>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+    <div class="subHead signup-subhead">
+        Login
+    </div>
+    <form action="/login" method="post">
+        <p id="signupFormHead">Login on Wanderlust</p>
+        <div class="SignupUsername" id="usernameDiv">
+            <label for="username" class="mlUser ffUser">USERNAME : </label><br>
+            <input type="text" id="username" class="ffUser SignupUser" name="username" placeholder="Please Enter your Username" required>
+            <i class="fa-solid signupFormIcons fa-check signupPriorIcon" id="usernameSignupIconFill"></i>
+            <i class="fa-solid signupFormIcons fa-circle-info" id="usernameSignupIconEmpty"></i>
+        </div>
+        <div class="SignupUsername" id="passwordDiv">
+            <label for="password" class="mlUser ffUser">Password : </label><br>
+            <input type="password" id="password" class="ffUser SignupUser" name="password" placeholder="Please Enter your Password" required>
+            <i class="fa-solid signupFormIcons fa-check signupPriorIcon" id="passwordSignupIconFill"></i>
+            <i class="fa-solid signupFormIcons fa-circle-info" id="passwordSignupIconEmpty"></i>
+        </div>
+        <div class="userSignupBtn">
+            <button class="userSignupBtn" id="signupFormBtn">Login</button>
+        </div>
+    </form>
+</body>
+</html>

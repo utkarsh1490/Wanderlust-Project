@@ -1,0 +1,94 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<script>
+    const mapToken = "<%= process.env.MAP_TOKEN %>"
+    const coordinates = <%- JSON.stringify(list.geometry.coordinates) %>;
+    let price = <%- JSON.stringify(list.price) %>;
+</script>
+<body>
+    <!-- <div class="subHead listPageEffect">
+        Listing
+    </div> -->
+    <%- include("../includes/filters.ejs") %>
+    <form action="/listings/<%= list.id %>/reviews" method="post">
+        <%- include("../includes/postReview.ejs") %>
+    </form>
+    <div class="listDetail" id="detailsCard">
+        <div>
+            <img src="<%= list.image.url %>" alt="img" class="image"/>
+        </div>
+        <div style="margin: auto; font-size: 1.3rem;">
+            <b><i>OWNED BY : </i></b><i><%= list.owner.username %></i>
+        </div>
+        <% if(list.reviews.length && currentUser){ %>
+            <button class="showReviewBtn" id="showReviewBtn">REVIEWS</button>
+        <% } %>
+        <div class="listCard">
+            <b>TITLE : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><%= list.title %> <br>
+            <b>DESCRIPTION : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><%= list.description %> <br>
+            <b>PRICE : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>&#8377;&nbsp;<div id="priceDiv"><%= list.price.toLocaleString("en-IN") %></div> /- <br>
+            <b>LOCATION : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><%= list.location %> <br>
+            <b>COUNTRY : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><%= list.country %>
+        </div>
+    </div>
+    <% let rlength = list.reviews.length %>
+    <% let count = 0 %>
+    <% if(rlength){ %>
+        <% if(rlength>=3){ %>
+            <% count = 3 %>
+        <% } else{ %>
+            <% count = rlength %>
+        <% } %>
+        <div class="listDetail" id="reviewCard">
+            <div class="reviewDiv">
+                <button class="showReviewBtn" id="showDetailsBtn">DETAILS</button>
+                <% for(let i=0;i<count;i++){ %>
+                    <div class="listCard review">
+                        <b><i>@<%=list.reviews[i].createdBy.username %></i></b> <br>
+                        <b>Rating : </b>
+                        <div class="ratingStarDiv">
+                            <p class="starability-result" data-rating=<%= list.reviews[i].rating %>>
+                            </p>
+                        </div><br>
+                        <b>Comment : </b><%= list.reviews[i].comment %> <br>
+                        <% if(currentUser && list.reviews[i].createdBy.equals(currentUser.id)){ %>
+                            <form action="/listings/<%= list.id %>/reviews/<%= list.reviews[i].id %>?_method=DELETE" method="post" id="reviewDltForm">
+                                <Button id="reviewDltBtn">DELETE</Button>
+                            </form>
+                        <% } %>
+                    </div>
+                <% } %>
+            </div>
+            <% if(rlength>3){ %>
+                <a href="http://localhost:8080/listings/<%= list.id %>/reviews/all" class="allReview">
+                    Click Here to see all reviews
+                </a>
+            <% } %>
+        </div>
+    <% } %>
+    <% if(currentUser && list.owner.id==currentUser.id){ %>
+    <form method="get" action="/listings/<%= list._id %>/edit">
+        <div class="listDetail editBtn">
+            <button class="signupBtn newBtn">EDIT Listing</button>
+        </div>
+    </form>
+    <form method="post" action="/listings/<%= list._id %>/delete?_method=DELETE">
+        <div class="listDetail deleteBtn">
+            <button class="signupBtn newBtn">DELETE Listing</button>
+        </div>
+    </form>
+    <% } %>
+    <% if(currentUser){ %>
+    <div class="listDetail editBtn">
+        <button class="signupBtn newBtn" id="reviewBtn">Please give us Your Review</button>
+    </div>
+    <% } %>
+    <div class="mapOuterDiv">
+        <hr>
+        <p>Where you'll be</p>
+        <div id="map"></div>
+    </div>
+    <script src="/js/Price.js"></script>
+    <script src="/js/review.js"></script>
+    <script src="/js/map.js"></script>
+</body>
+</html>

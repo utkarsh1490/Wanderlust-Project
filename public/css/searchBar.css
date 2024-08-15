@@ -1,0 +1,47 @@
+#searchBtn{
+    display: inline-block;
+}
+#searchSubmitBtn{
+    outline: none;
+    background: transparent;
+    font-size: 1.5rem;
+    border: 0.1rem solid aliceblue;
+    margin: 0;
+    margin-left: -0.3rem;
+    padding: 0.7rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+#searchLink{
+    text-decoration: none;
+    color: black;
+}
+#searchSubmitBtn:hover{
+    border: 0.1rem solid rgb(193, 218, 252);
+    border-radius: 3rem;
+    background-color: rgb(112, 248, 255);
+    font-weight: 200;
+}
+#search{
+    font-size: 1.4rem;
+    border-radius: 3rem;
+    padding: 0.6rem 2rem;
+    height: 1.8rem;
+    width: 25rem;
+    border: 0.01rem solid rgba(153, 153, 153, 0.285);
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.07rem;
+}
+#search:hover{
+    border: 0.01rem solid rgba(104, 103, 103, 0.458);
+}
+#search:focus{
+    outline: none;
+    border: 0.098rem solid rgb(0, 0, 0);
+}

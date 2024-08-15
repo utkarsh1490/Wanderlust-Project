@@ -1,0 +1,31 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <form action="/listings/<%= listing.id %>/reviews" method="post">
+        <%- include("../includes/postReview.ejs") %>
+    </form>
+    <div class="subHead listPageEffect" id="reviewSubHead">
+        All Reviews
+    </div>
+    <div style="margin-bottom: 4rem;" class="rDiv">
+        <% for(let review of listing.reviews){ %>
+            <div class="listCard listDetail" id="review">
+                <div style="font-size: 1.7rem;"><b><i>@<%=review.createdBy.username%></i></b></div>
+                <div><b>Rating : </b><div class="ratingStarDiv">
+                    <p class="starability-result" data-rating=<%=review.rating %>>
+                    </p>
+                </div><br></div>
+                <div><b>Review : </b><%= review.comment %></div>
+                <% if(review.createdBy.equals(currentUser._id)){ %>
+                    <form action="/listings/<%= listing.id %>/reviews/<%= review.id %>?_method=DELETE" method="post" id="reviewDltForm">
+                        <Button id="reviewDltBtn">DELETE</Button>
+                    </form>
+                <% } %>
+            </div>
+        <% } %>
+    </div> 
+    <div class="listDetail editBtn" style="margin-top: 7.5rem;">
+        <button class="signupBtn newBtn" id="reviewBtn">Please give us Your Review</button>
+    </div>
+    <script src="/js/review.js"></script>
+</body>
+</html>

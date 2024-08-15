@@ -1,0 +1,33 @@
+<div class="reviewModal">
+    <div id="closeModal"><i class="fa-solid fa-xmark"></i></div>
+    <div id="reviewHead">Please Review Here</div>
+    <div id="reviewBody">
+        <label for="rating">
+            Please Rate : <br>
+        </label>
+        <fieldset class="starability-slot">
+            <input type="radio" id="no-rate" class="input-no-rate" name="reviews[rating]" value="0" checked aria-label="No rating." />
+            <input type="radio" id="first-rate1" name="reviews[rating]" value="1" />
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <input type="radio" id="first-rate2" name="reviews[rating]" value="2" />
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <input type="radio" id="first-rate3" name="reviews[rating]" value="3" />
+            <label for="first-rate3" title="Average">3 stars</label>
+            <input type="radio" id="first-rate4" name="reviews[rating]" value="4" />
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <input type="radio" id="first-rate5" name="reviews[rating]" value="5" />
+            <label for="first-rate5" title="Amazing">5 stars</label>
+          </fieldset>
+        <div class="comment">
+            <label for="comment">
+                Please give us your Feedback : <br>
+            </label>
+            <textarea name="reviews[comment]" id="comment" cols="56" rows="7" placeholder="Enter Your Feedback Here" required></textarea>
+            <i class="fa-solid fa-check" id="reviewIconFill"></i>
+            <i class="fa-solid fa-circle-info" id="reviewIconEmpty"></i>
+        </div>
+    </div>
+    <div id="footer">
+        <button type="submit" id="reviewSubmitBtn">Submit</button>
+    </div>
+</div>

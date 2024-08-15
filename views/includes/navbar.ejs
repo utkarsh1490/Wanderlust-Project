@@ -1,0 +1,63 @@
+<head>
+    <link rel="stylesheet" href="/css/searchBar.css">
+</head>
+<div class="header flex">
+    <div class="logo">
+        <div class="logoDiv">
+            <a href="http://localhost:8080/listings" id="logoLink">
+                <img src="/photos/logo.png" alt="logo" id="logo">
+                <div class="webName">Wanderlust</div>
+            </a>
+        </div>
+        <div id="logo-item2">
+            <form action="/listings" method="get">
+                <button class="signupBtn">
+                    <i class="fa-solid fa-house"></i>
+                    <div class="webName">Explore</div>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div id="searchDiv">
+        <form action="/listings/search" method="get">
+            <input type="text" name="search" id="search" placeholder="Paris, France">
+            <div id="searchBtn">
+                <button type="submit" id="searchSubmitBtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="signup">
+        <div class="btns">
+            <form action="/listings/new" method="get">
+                <button class="signupBtn" id="newListingBtn">
+                    <div class="webName">Airbnb Your Home</div>
+                </button>
+            </form>
+            <% if(!currentUser){ %>
+            <form action="/login" method="get">
+                <button type="submit" class="signupBtn">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <b>Login</b>
+                </button>
+            </form>
+            <form action="/signup" method="get">
+                <button type="submit" class="signupBtn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <b>Sign Up</b>
+                </button>
+            </form>
+            <% } %>
+            <% if(currentUser){ %>      
+            <form action="/logout" method="get">
+                <button type="submit" class="signupBtn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <b>Logout</b>
+                </button>
+            </form>
+            <% } %>
+        </div>
+    </div>
+</div>

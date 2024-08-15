@@ -1,0 +1,55 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div class="subHead signup-subhead">
+        EDIT your Listing
+    </div>
+    <div>
+        <%= successMsg %>
+    </div>
+    <form action="/listings/<%= listing.id %>/edit?_method=PATCH" method="post" id="registerForm" enctype="multipart/form-data">
+        <div class="form listDetail">
+            <div id="titleDiv">
+                <label class="field" for="title">Name : </label>
+                <input type="text" name="listing[title]" id="title" placeholder="Enter Title for your Listing Here" value="<%= listing.title %>" required>
+                <i class="fa-solid fa-check" id="titleIconFill"></i>
+                <i class="fa-solid fa-circle-info" id="titleIconEmpty"></i>
+            </div>
+            <div id="imagePreviewDiv">
+                <p>Original Image</p>
+                <img src="<%= originalImage %>" alt="original Image" id="imagePreview">
+            </div>
+            <div>
+                <label class="field" for="imageFile">Upload New Image : </label>
+                <input type="file" name="listing[image]" id="imageFile">
+            </div>
+            <div id="editDescriptionDiv">
+                <label class="field" for="description">Description : </label><br>
+                <textarea type="text" name="listing[description]" id="description" placeholder="Enter Description for your Listing Here" cols="57" rows="15" required><%= listing.description %></textarea>
+                <i class="fa-solid fa-check" id="descriptionIconFill"></i>
+                <i class="fa-solid fa-circle-info" id="descriptionIconEmpty"></i>
+            </div>
+            <div id="priceDiv">
+                <label class="field" for="price">Price : </label>
+                <input type="number" name="listing[price]" id="price" placeholder="Enter Price for your Listing Here" value="<%= listing.price %>" required>
+                <i class="fa-solid fa-check" id="priceIconFill"></i>
+                <i class="fa-solid fa-circle-info" id="priceIconEmpty"></i>
+            </div>
+            <div id="locationDiv">
+                <label class="field" for="location">Location : </label>
+                <input type="text" name="listing[location]" id="location" placeholder="Enter Location for your Listing Here" value="<%= listing.location %>" required>
+                <i class="fa-solid fa-check" id="locationIconFill"></i>
+                <i class="fa-solid fa-circle-info" id="locationIconEmpty"></i>
+            </div>
+            <div id="countryDiv">
+                <label class="field" for="country">Country : </label>
+                <input type="text" name="listing[country]" id="country" placeholder="Enter Country for your Listing Here" value="<%= listing.country %>" required>
+                <i class="fa-solid fa-check" id="countryIconFill"></i>
+                <i class="fa-solid fa-circle-info" id="countryIconEmpty"></i>
+            </div>
+        </div>
+        <div class="listDetail">
+            <button class="signupBtn newBtn" id="formBtn">Edit</button>
+        </div>
+    </form>
+</body>
+</html>

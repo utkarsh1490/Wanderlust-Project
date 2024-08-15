@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<title>WANDERLUST | Home Page</title>
+<body>
+    <!-- <div class="subHead">
+        Listings
+    </div> -->
+    <%- include("../includes/filters.ejs") %>
+    <div class="list">
+        <% let coordinatesArray = [] %>
+        <% for(list of listings){ %>
+            <a href="http://localhost:8080/listings/<%= list.id %>" class="card" style="background-image: url('<%= list.image.url %>'); background-size: cover;">
+                <% if(currentUser && list.owner._id.equals(currentUser._id)){ %>
+                    <div class="cardBtn">
+                        <form method="get" action="/listings/<%= list._id %>/edit">
+                            <button class="editCard edtBtn">Edit</button>
+                        </form>
+                        <form method="post" action="/listings/<%= list._id %>/delete?_method=DELETE">
+                            <button class="editCard dltBtn">Delete</button>
+                        </form>
+                    </div>
+                <% } %>
+                <% if(list.geometry.coordinates){ %>
+                    <script>
+                        <%- coordinatesArray.push(list.geometry.coordinates) %> ;
+                    </script>
+                <% } %>
+            </a>
+        <% } %>
+    </div>
+    <form action="/listings/new" method="get">
+        <div class="listDetail">
+            <button class="signupBtn newBtn" >Submit Your Listing</button>
+        </div>
+    </form>
+    <script src="/js/Price.js"></script>
+    <script>
+        toggleBtn = document.querySelector(".toggleBtnDiv");
+        toggleBtn.remove();
+        toggleBtn = document.querySelector("#filters").style;
+        toggleBtn.display = "flex";
+        toggleBtn.flexWrap = "wrap";
+        toggleBtn.justifyContent = "center";
+    </script>
+</body>
+</html>
