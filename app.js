@@ -30,6 +30,7 @@ app.use(methodOverride('_method'));
 app.use("/photos",express.static(path.join(__dirname,"public")));
 app.engine("ejs",ejsMate);
 
+// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl = process.env.ATLASDB_URL;
 
 main().then(()=>{
@@ -47,7 +48,7 @@ app.listen(8080,()=>{
 const store = MongoStore.create({
     mongoUrl : dbUrl,
     crypto : {
-        secret : process.env.SECRET,
+        secret : process.env.SECRET
     },
     touchAfter : 24 * 3600
 });
@@ -68,6 +69,10 @@ const sessionOptions = {
     }
 };
 
+app.use((err,req,res,next)=>{
+    console.log(err);
+    next();
+})
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -99,5 +104,5 @@ app.use((err,req,res,next)=>{
 });
 
 app.use("*",(err,req,res,next)=>{
-    res.send("Some Error Occured");
+    res.send(err);
 });
