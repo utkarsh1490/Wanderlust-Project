@@ -8,7 +8,7 @@
     <div class="list">
         <% let coordinatesArray = [] %>
         <% for(list of listings){ %>
-            <a href="http://localhost:8080/listings/<%= list.id %>" class="card" style="background-image: url('<%= list.image.url %>'); background-size: cover;">
+            <a href="https://wanderlust-project-2-6k3t.onrender.com/listings/<%= list.id %>" class="card" style="background-image: url('<%= list.image.url %>'); background-size: cover;">
                 <% if(currentUser && list.owner._id.equals(currentUser._id)){ %>
                     <div class="cardBtn">
                         <form method="get" action="/listings/<%= list._id %>/edit">
